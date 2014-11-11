@@ -1,1 +1,1 @@
-this is a hep file
+this is a help file
