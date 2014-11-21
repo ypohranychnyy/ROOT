@@ -23,6 +23,8 @@ public class VS extends HttpServlet {
      
       PrintWriter out = response.getWriter();
       request.getRequestDispatcher("/header.jsp").include(request, response);
+              request.getRequestDispatcher("/right.jsp").include(request, response);
+
 
        // Dynamic generation goes here.
       if ( (request.getParameterValues("username") != null) && (request.getParameterValues("passwd") != null) ) {
@@ -39,14 +41,13 @@ public class VS extends HttpServlet {
             // link processing section
             String[] required_action = request.getParameterValues("action");
 
-            if ( (required_action("action")) != null) ) {
+            if (required_action.length > 0 && required_action[0].equals("help")) {
               out.println("/help.jsp");
             }
             // eto tvoe DZ: obrabotai ssylki! 
         } else {
           out.println("No param");
         }
-        request.getRequestDispatcher("/right.jsp").include(request, response);
         request.getRequestDispatcher("/footer.jsp").include(request, response);
   }
   public void destroy()
